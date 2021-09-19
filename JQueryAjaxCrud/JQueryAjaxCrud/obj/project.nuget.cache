@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xFKpIYIm+zW66H2KZ112jrgrXGlatUR7Rzgq8HS5As4lOqvx5Cdu6CsCtKr3Uh6wUpDA5Cg8vv4QBU9C4CMngw==",
+  "success": true,
+  "projectFilePath": "D:\\C# - Work\\ASP.NETCore-JQueryAjax-CRUD\\JQueryAjaxCrud\\JQueryAjaxCrud\\JQueryAjaxCrud.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sunil\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.9\\microsoft.netcore.app.host.win-x64.5.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}
