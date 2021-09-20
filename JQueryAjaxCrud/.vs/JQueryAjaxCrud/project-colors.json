@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e9daef03-88cb-461c-a2fd-7564dc18e857": {
+      "ProjectGuid": "e9daef03-88cb-461c-a2fd-7564dc18e857",
+      "DisplayName": "JQueryAjaxCrud",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

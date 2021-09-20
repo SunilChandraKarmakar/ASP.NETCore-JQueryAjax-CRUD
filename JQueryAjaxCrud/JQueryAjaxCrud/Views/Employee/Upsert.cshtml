@@ -1,39 +1,64 @@
 ﻿@model Employee
 @{
     ViewData["Title"] = "Upsert";
+    Layout = null;
 }
 
 <div class="row">
     <div class="col-md-12">
-        <h3 class="text-center">Create Employee</h3>
-        <hr />
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <form method="post" asp-action="Create">
+        <form method="post" asp-action="Upsert" onsubmit="return JQueryAjaxPost(this);" autocomplete="off">
+            <input type="hidden" asp-for="Id" />
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Name">Name</label>
-                    <input type="text" asp-for="Name" class="form-control">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="fas fa-signature"></i>
+                            </div>
+                        </div>
+                        <input type="text" asp-for="Name" class="form-control">
+                    </div>                                                     
+                    <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="Email">Email</label>
-                    <input type="email" asp-for="Email" class="form-control">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="far fa-envelope"></i>
+                            </div>
+                        </div>
+                        <input type="email" asp-for="Email" class="form-control">
+                    </div>                                                       
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="DepartmentName">Department</label>
-                    <input type="text" asp-for="DepartmentName" class="form-control">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="far fa-building"></i>
+                            </div>
+                        </div>
+                        <input type="text" asp-for="DepartmentName" class="form-control">
+                    </div>   
+                    <span asp-validation-for="DepartmentName" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="AccountNumber">Account Number</label>
-                    <input type="number" asp-for="AccountNumber" class="form-control">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">#</div>
+                        </div>
+                        <input type="number" asp-for="AccountNumber" class="form-control">
+                    </div>
+                    <span asp-validation-for="AccountNumber" class="text-danger"></span>
                 </div>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Create Employee</button>
+            </div>                
+            <button type="submit" class="btn btn-primary btn-block">Save</button>
         </form>
     </div>
 </div>

@@ -144,5 +144,5 @@ D:\C# - Work\ASP.NETCore-JQueryAjax-CRUD\JQueryAjaxCrud\JQueryAjaxCrud\bin\Debug
 D:\C# - Work\ASP.NETCore-JQueryAjax-CRUD\JQueryAjaxCrud\JQueryAjaxCrud\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\C# - Work\ASP.NETCore-JQueryAjax-CRUD\JQueryAjaxCrud\JQueryAjaxCrud\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\C# - Work\ASP.NETCore-JQueryAjax-CRUD\JQueryAjaxCrud\JQueryAjaxCrud\obj\Debug\net5.0\Razor\Views\Employee\Index.cshtml.g.cs
-D:\C# - Work\ASP.NETCore-JQueryAjax-CRUD\JQueryAjaxCrud\JQueryAjaxCrud\obj\Debug\net5.0\Razor\Views\Employee\Create.cshtml.g.cs
 D:\C# - Work\ASP.NETCore-JQueryAjax-CRUD\JQueryAjaxCrud\JQueryAjaxCrud\obj\Debug\net5.0\Razor\Views\Employee\Upsert.cshtml.g.cs
+D:\C# - Work\ASP.NETCore-JQueryAjax-CRUD\JQueryAjaxCrud\JQueryAjaxCrud\obj\Debug\net5.0\Razor\Views\Employee\_ViewAll.cshtml.g.cs

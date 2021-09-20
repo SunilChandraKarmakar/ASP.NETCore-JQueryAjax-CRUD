@@ -1,6 +1,7 @@
 ﻿using JQueryAjaxCrud.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace JQueryAjaxCrud.Controllers
@@ -24,7 +25,7 @@ namespace JQueryAjaxCrud.Controllers
         public async Task<IActionResult> Upsert(int id = 0)
         {
             if (id == 0)
-                return View();
+                return View(new Employee());
             else
             {
                 Employee existEmployee = await _db.Employees.FindAsync(id);
@@ -36,23 +37,26 @@ namespace JQueryAjaxCrud.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
         [HttpPost]
-        public async Task<IActionResult> Create(Employee employee)
+        public async Task<IActionResult> Upsert(Employee employee)
         {
             if(ModelState.IsValid)
             {
-                _db.Employees.Add(employee);
-                await _db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index)); 
+               if(employee.Id == 0)
+               {
+                    _db.Employees.Add(employee);
+                    await _db.SaveChangesAsync();
+               } 
+               else
+               {
+                    _db.Update(employee);
+                    await _db.SaveChangesAsync();
+               }
+
+                return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAll", _db.Employees.ToList()) });
             }
 
-            return  View(employee);
+            return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "Upsert", employee) });
         }
     }
 }
