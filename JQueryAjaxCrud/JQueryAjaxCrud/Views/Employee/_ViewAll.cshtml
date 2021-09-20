@@ -23,6 +23,15 @@
                 <td>@employee.Email</td>
                 <td>@employee.DepartmentName</td>
                 <td>@employee.AccountNumber</td>
+                <td>
+                    <a onclick="showInPopup('@Url.Action("Upsert","Employee", new { id = employee.Id } , Context.Request.Scheme)', 'Update Employee')" 
+                        class="btn btn-info text-white">
+                        <i class="fas fa-pencil-alt"></i>&nbsp; Edit
+                    </a>
+                    <form method="post" asp-action="Delete" asp-route-id="@employee.Id" onsubmit="return JQueryAjaxDelete(this);" class="d-inline">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
             </tr>   
         }
     </tbody>

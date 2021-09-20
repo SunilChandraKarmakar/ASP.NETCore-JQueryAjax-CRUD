@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using static JQueryAjaxCrud.Helper;
 
 namespace JQueryAjaxCrud.Controllers
 {
@@ -21,7 +22,8 @@ namespace JQueryAjaxCrud.Controllers
             return View(await _db.Employees.ToListAsync());
         }
 
-        [HttpGet]
+        [HttpGet]                        
+        [NoDirectAccess]
         public async Task<IActionResult> Upsert(int id = 0)
         {
             if (id == 0)
@@ -57,6 +59,22 @@ namespace JQueryAjaxCrud.Controllers
             }
 
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "Upsert", employee) });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            Employee existEmployee = await _db.Employees.FindAsync(id);
+
+            if (existEmployee == null)
+                return NotFound();
+
+            _db.Employees.Remove(existEmployee);
+            await _db.SaveChangesAsync();
+            return Json(new { html = Helper.RenderRazorViewToString(this, "_ViewAll", _db.Employees.ToList()) });
         }
     }
 }
